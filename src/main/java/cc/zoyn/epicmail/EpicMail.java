@@ -34,16 +34,20 @@ public class EpicMail extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // default is zh-CN
+        saveDefaultConfig();
+
+        // default language is zh-CN
         languageFolder = new File(getDataFolder(), "language");
         if (!languageFolder.exists()) {
             languageFolder.mkdirs();
             try {
+                StreamUtils.writeToLocal(languageFolder.getAbsolutePath() + File.separator + "en-US.yml", getResource("en-US.yml"));
                 StreamUtils.writeToLocal(languageFolder.getAbsolutePath() + File.separator + "zh-CN.yml", getResource("zh-CN.yml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+
         language = getConfig().getString("language", "zh-CN");
 
         // command registe
