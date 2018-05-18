@@ -1,0 +1,11 @@
+name: EpicMail
+main: cc.zoyn.epicmail.EpicMail
+version: 1.0
+author: Zoyn
+commands:
+  epicmail:
+    aliases: [em, mail]
+    description: "The EpicMail's Main Command"
+permission:
+  epicmail.help:
+    default: true

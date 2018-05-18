@@ -1,0 +1,10 @@
+######################################
+#  zh-CN 中文汉化         Edit By: Zoyn
+######################################
+
+message-prefix: "&e[&6EpicQuest&e] "
+unknown-command: "&c未知命令!"
+no-permission: "&c你没有权限来做这个!"
+help:
+  - "&7===== &e[&6EpicQuest &f&l| &6史诗任务&e] &7====="
+  - " &e/em help &6查阅帮助 "
