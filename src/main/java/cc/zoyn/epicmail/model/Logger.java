@@ -16,8 +16,12 @@ public final class Logger {
 
     private static final ConsoleCommandSender logger = Bukkit.getConsoleSender();
 
+    public static void info(String msg) {
+        logger.sendMessage(I18n.MESSAGE_PREFIX + msg);
+    }
+
     public static void info(String... msg) {
-        logger.sendMessage(msg);
+        Arrays.stream(msg).forEach(Logger::info);
     }
 
     public static void warn(String msg) {

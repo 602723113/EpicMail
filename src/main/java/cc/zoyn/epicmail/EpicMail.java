@@ -1,6 +1,7 @@
 package cc.zoyn.epicmail;
 
 import cc.zoyn.epicmail.command.CommandHandler;
+import cc.zoyn.epicmail.model.Logger;
 import cc.zoyn.epicmail.util.ConfigurationUtils;
 import cc.zoyn.epicmail.util.StreamUtils;
 import lombok.Getter;
@@ -47,6 +48,8 @@ public class EpicMail extends JavaPlugin {
 
         // command registe
         getPluginCommand("epicmail").setExecutor(new CommandHandler());
+
+        Logger.info("set language: " + language);
     }
 
     /**

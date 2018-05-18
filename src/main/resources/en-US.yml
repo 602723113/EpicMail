@@ -1,0 +1,11 @@
+#################################################
+#  en-US English Version Edit By: Zoyn
+#################################################
+
+message-prefix: "&e[&6EpicMail&e] "
+unknown-command: "&cunknow command!"
+no-permission: "&cyou don't have permission to do that!"
+help:
+  - "&7===== &e[&6EpicMail&e] &7====="
+  - " &e/mail me &6check yourself mailbox "
+  - " &e/mail help &6look help "
