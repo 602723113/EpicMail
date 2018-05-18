@@ -46,7 +46,6 @@ public class CommandHandler implements CommandExecutor {
         }
 
         // the first args is args[0], that is the sub command
-
         SubCommand subCommand = commandMap.get(args[0]);
         subCommand.execute(sender, args);
         return true;

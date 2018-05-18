@@ -7,6 +7,5 @@ public class MeCommand implements SubCommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) {
-
     }
 }
