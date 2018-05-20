@@ -2,6 +2,7 @@ package cc.zoyn.epicmail.command;
 
 import cc.zoyn.epicmail.I18n;
 import cc.zoyn.epicmail.command.subcommand.HelpCommand;
+import cc.zoyn.epicmail.command.subcommand.MeCommand;
 import com.google.common.collect.Maps;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -25,6 +26,7 @@ public class CommandHandler implements CommandExecutor {
      */
     public CommandHandler() {
         registerCommand("help", new HelpCommand());
+        registerCommand("me", new MeCommand());
     }
 
     private void registerCommand(String commandName, SubCommand subCommand) {

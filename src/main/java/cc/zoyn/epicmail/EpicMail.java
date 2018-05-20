@@ -2,6 +2,7 @@ package cc.zoyn.epicmail;
 
 import cc.zoyn.epicmail.command.CommandHandler;
 import cc.zoyn.epicmail.model.Logger;
+import cc.zoyn.epicmail.model.StorageType;
 import cc.zoyn.epicmail.util.ConfigurationUtils;
 import cc.zoyn.epicmail.util.StreamUtils;
 import lombok.Getter;
@@ -27,6 +28,11 @@ public class EpicMail extends JavaPlugin {
     private File languageFolder;
     private File languageFile;
 
+    @Getter
+    private StorageType storageType;
+    @Getter
+    private File mailFolder;
+
     @Override
     public void onLoad() {
         instance = this;
@@ -36,7 +42,6 @@ public class EpicMail extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
 
-        // default language is zh-CN
         languageFolder = new File(getDataFolder(), "language");
         if (!languageFolder.exists()) {
             languageFolder.mkdirs();
@@ -48,7 +53,17 @@ public class EpicMail extends JavaPlugin {
             }
         }
 
+        // default language is zh-CN
         language = getConfig().getString("language", "zh-CN");
+
+        // check storage type
+        storageType = StorageType.valueOf(getConfig().getString("storageType"));
+        if (storageType.equals(StorageType.YAML)) {
+            mailFolder = new File(getDataFolder(), "mail");
+            if (!mailFolder.exists()) {
+                mailFolder.mkdirs();
+            }
+        }
 
         // command registe
         getPluginCommand("epicmail").setExecutor(new CommandHandler());
