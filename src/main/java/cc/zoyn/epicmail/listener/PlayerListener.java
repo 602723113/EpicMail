@@ -10,6 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.UUID;
 
 /**
@@ -23,7 +24,11 @@ public class PlayerListener implements Listener {
         Player player = event.getPlayer();
         File file = new File(EpicMail.getInstance().getMailFolder(), event.getPlayer().getName() + ".yml");
         if (!file.exists()) {
-            file.mkdirs();
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             MailBox mailBox = new MailBox(UUID.nameUUIDFromBytes(("MailBox:" + player.getName()).getBytes()), player.getName(), Lists.newArrayList());
             MailBoxManager.getInstance().addMailBox(mailBox);
         }
