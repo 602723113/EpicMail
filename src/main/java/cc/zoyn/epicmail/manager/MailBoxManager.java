@@ -37,11 +37,15 @@ public class MailBoxManager {
     }
 
     public Optional<MailBox> getMailBoxByOwnerName(String ownerName) {
-        return mailBoxes.stream().filter(mailBox -> mailBox.getOwner().equals(ownerName)).findAny();
+        return mailBoxes.stream()
+                .filter(mailBox -> mailBox.getOwner().equals(ownerName))
+                .findAny();
     }
 
     public Optional<MailBox> getMailBoxByUUID(String uuid) {
-        return mailBoxes.stream().filter(mailBox -> mailBox.getUuid().toString().equals(uuid)).findAny();
+        return mailBoxes.stream()
+                .filter(mailBox -> mailBox.getUuid().toString().equals(uuid))
+                .findAny();
     }
 
 }
