@@ -1,6 +1,7 @@
 package cc.zoyn.epicmail;
 
 import cc.zoyn.epicmail.command.CommandHandler;
+import cc.zoyn.epicmail.listener.PlayerListener;
 import cc.zoyn.epicmail.model.Logger;
 import cc.zoyn.epicmail.model.StorageType;
 import cc.zoyn.epicmail.util.ConfigurationUtils;
@@ -13,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static org.bukkit.Bukkit.getPluginCommand;
+import static org.bukkit.Bukkit.getPluginManager;
 
 /**
  * Mail Class
@@ -42,6 +44,7 @@ public class EpicMail extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
 
+        // language folder detect
         languageFolder = new File(getDataFolder(), "language");
         if (!languageFolder.exists()) {
             languageFolder.mkdirs();
@@ -67,6 +70,9 @@ public class EpicMail extends JavaPlugin {
 
         // command registe
         getPluginCommand("epicmail").setExecutor(new CommandHandler());
+
+        // listener registe
+        getPluginManager().registerEvents(new PlayerListener(), this);
 
         Logger.info("set language: " + language);
     }

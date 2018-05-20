@@ -1,7 +1,9 @@
 package cc.zoyn.epicmail.model;
 
 import com.google.common.collect.Maps;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 
 import javax.annotation.Nonnull;
@@ -14,6 +16,8 @@ import java.util.UUID;
  * @since 2018-05-20
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class MailBox implements ConfigurationSerializable {
 
     private UUID uuid;
