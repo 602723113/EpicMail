@@ -1,5 +1,6 @@
 package cc.zoyn.epicmail.model;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,8 +21,12 @@ public class Mail implements ConfigurationSerializable {
     private String sender;
     private String reciver;
     private String message;
-    private List<ItemStack> items;
+    private List<ItemStack> items = Lists.newArrayList();
     private long sendTime;
+
+    public boolean hasItem() {
+        return !items.isEmpty();
+    }
 
     @Nonnull
     public static Mail deserialize(Map<String, Object> map) {

@@ -11,3 +11,7 @@ storageType: YAML
 # Plugin language, default is zh-CN (Chinese)
 # Available options: check the /EpicMail/language/ folder
 language: zh-CN
+
+mailOption:
+  # Automatically newline when the length of the message exceeds this value
+  messageNewline: 16
