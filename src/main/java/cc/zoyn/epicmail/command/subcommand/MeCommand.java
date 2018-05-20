@@ -1,6 +1,7 @@
 package cc.zoyn.epicmail.command.subcommand;
 
 import cc.zoyn.epicmail.command.SubCommand;
+import cc.zoyn.epicmail.gui.MailBoxGUI;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -13,5 +14,6 @@ public class MeCommand implements SubCommand {
             return;
         }
         Player player = (Player) sender;
+        MailBoxGUI.openMailBox(player);
     }
 }
