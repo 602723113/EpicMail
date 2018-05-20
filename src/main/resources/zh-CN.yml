@@ -9,3 +9,9 @@ help:
   - "&7===== &e[&6EpicMail &f&l| &6史诗邮箱&e] &7====="
   - " &e/mail me &6查看自己的邮箱 "
   - " &e/mail help &6查阅帮助 "
+
+# GUI信息设置
+mail-box-name: "&c&l我的邮箱"
+gui-previous-page: "&e[ &f上一页 &e]"
+gui-next-page: "&e[ &f下一页 &e]"
+gui-page: "&e[&f第 &a&l%page% &f页&e]"

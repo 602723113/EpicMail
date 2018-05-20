@@ -1,5 +1,5 @@
 #################################################
-#  en-US English Version Edit By: Zoyn
+#  en-US English Version            Edit By: Zoyn
 #################################################
 
 message-prefix: "&e[&6EpicMail&e] "
@@ -9,3 +9,9 @@ help:
   - "&7===== &e[&6EpicMail&e] &7====="
   - " &e/mail me &6check yourself mailbox "
   - " &e/mail help &6look help "
+
+# GUI information setting
+mail-box-name: "&c&lMy MailBox"
+gui-previous-page: "&e[ &fPrevious page &e]"
+gui-next-page: "&e[ &fNext page &e]"
+gui-page: "&e[&fPage &a&l%page% &e]"

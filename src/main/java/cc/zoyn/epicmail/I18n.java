@@ -2,21 +2,32 @@ package cc.zoyn.epicmail;
 
 import lombok.NonNull;
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public enum I18n {
 
-    MESSAGE_PREFIX(translateColorCode(EpicMail.getInstance().getLanguageConfig().getString("message-prefix"))),
-    UNKNOW_COMMAND(translateColorCode(EpicMail.getInstance().getLanguageConfig().getString("unknown-command"))),
-    NO_PERMISSION(translateColorCode(EpicMail.getInstance().getLanguageConfig().getString("no-permission"))),
-    HELP(translateColorCode(EpicMail.getInstance().getLanguageConfig().getStringList("help")));
+    MESSAGE_PREFIX("message-prefix"),
+    UNKNOW_COMMAND("unknown-command"),
+    NO_PERMISSION("no-permission"),
+    MAIL_BOX_NAME("mail-box-name"),
+    GUI_PREVIOUS_PAGE("gui-previous-page"),
+    GUI_NEXT_PAGE("gui-next-page"),
+    GUI_PAGE("gui-page"),
+    HELP("help");
 
     private Object message;
 
-    I18n(Object message) {
-        this.message = message;
+    I18n(String message) {
+        FileConfiguration config = EpicMail.getInstance().getLanguageConfig();
+        if (config.isString(message)) {
+            this.message = translateColorCode(config.getString(message));
+        } else if (config.isList(message)) {
+            this.message = translateColorCode(config.getStringList(message));
+        }
+
     }
 
     public String getMessage() {
