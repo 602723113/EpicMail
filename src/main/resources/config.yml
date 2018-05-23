@@ -4,9 +4,9 @@
 #         plugin config           #
 ###################################
 
-# The data save type, default is YAML
-# Available options: MYSQL, SQLITE, YAML
-storageType: YAML
+# The data save type, default is SQLITE
+# Available options: MYSQL, SQLITE
+storageType: SQLITE
 
 # Plugin language, default is zh-CN (Chinese)
 # Available options: check the /EpicMail/language/ folder

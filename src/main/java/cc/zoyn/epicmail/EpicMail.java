@@ -33,7 +33,7 @@ public class EpicMail extends JavaPlugin {
     @Getter
     private StorageType storageType;
     @Getter
-    private File mailFolder;
+    private File sqliteFile;
 
     @Override
     public void onLoad() {
@@ -61,10 +61,14 @@ public class EpicMail extends JavaPlugin {
 
         // check storage type
         storageType = StorageType.valueOf(getConfig().getString("storageType"));
-        if (storageType.equals(StorageType.YAML)) {
-            mailFolder = new File(getDataFolder(), "mail");
-            if (!mailFolder.exists()) {
-                mailFolder.mkdirs();
+        if (storageType.equals(StorageType.SQLITE)) {
+            sqliteFile = new File(getDataFolder(), "mail.db");
+            if (!sqliteFile.exists()) {
+                try {
+                    sqliteFile.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
 
