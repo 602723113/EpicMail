@@ -12,6 +12,19 @@ storageType: SQLITE
 # Available options: check the /EpicMail/language/ folder
 language: zh-CN
 
+# Database setting
+# ip       Database ip, automatically ignored when StorageType is SQLITE
+# port     Database port, automatically ignored when StorageType is SQLITE
+# user     Database user
+# password Database password
+# database The specified database name, automatically ignored when StorageType is SQLITE
+databaseOption:
+  ip: "localhost"
+  port: "3306"
+  user: ""
+  password: ""
+  database: mc
+
 mailOption:
-  # Automatically newline when the length of the message exceeds this value
+  # Automatically newline when the length of the mail message exceeds this value
   messageNewline: 16
