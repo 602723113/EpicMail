@@ -6,10 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bukkit.inventory.ItemStack;
 import org.javalite.activejdbc.Model;
+import org.javalite.activejdbc.annotations.Table;
 
 import java.util.List;
 
 @Data
+@Table("epicmail_mail")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Mail extends Model {
