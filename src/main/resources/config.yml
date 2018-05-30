@@ -21,7 +21,7 @@ language: zh-CN
 databaseOption:
   ip: "localhost"
   port: "3306"
-  user: ""
+  user: "root"
   password: ""
   database: mc
 
