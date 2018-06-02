@@ -16,16 +16,21 @@ public enum I18n {
     GUI_PREVIOUS_PAGE("gui-previous-page"),
     GUI_NEXT_PAGE("gui-next-page"),
     GUI_PAGE("gui-page"),
+    GUI_MAIL_MESSAGE("gui-mail-message"),
+    GUI_MAIL_ITEMS("gui-mail-items"),
+    GUI_MAIL_SENDER("gui-mail-sender"),
+    GUI_MAIL_LEFT_CLICK("gui-mail-left-click"),
+    GUI_MAIL_SHIFT_CLICK("gui-mail-shift-click"),
     HELP("help");
 
     private Object message;
 
-    I18n(String message) {
+    I18n(String key) {
         FileConfiguration config = EpicMail.getInstance().getLanguageConfig();
-        if (config.isString(message)) {
-            this.message = translateColorCode(config.getString(message));
-        } else if (config.isList(message)) {
-            this.message = translateColorCode(config.getStringList(message));
+        if (config.isString(key)) {
+            this.message = translateColorCode(config.getString(key));
+        } else if (config.isList(key)) {
+            this.message = translateColorCode(config.getStringList(key));
         }
 
     }
@@ -46,4 +51,8 @@ public enum I18n {
         return messages.stream().map(I18n::translateColorCode).collect(Collectors.toList());
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
