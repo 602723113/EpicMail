@@ -104,6 +104,11 @@ public class EpicMail extends JavaPlugin {
                             "items          TEXT      NOT NULL, " +
                             "send_time      REAL      NOT NULL);")
                             .execute();
+                    db.startBatch("CREATE TABLE IF NOT EXISTS epicmail_mailbox( " +
+                            "id INT PRIMARY KEY       NOT NULL, " +
+                            "uuid          TEXT      NOT NULL, " +
+                            "owner         TEXT      NOT NULL);")
+                            .execute();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
